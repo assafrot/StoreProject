@@ -1,0 +1,7 @@
+﻿@model Client.Models.ProductDto
+
+<span>@Html.ActionLink(@Model.Title.ToString(), "GetProduct","Product",new{id=@Model.Id},null)</span>
+<span> @Model.Price</span>
+<span>
+    @Html.ActionLink("remove from cart", "RemoveFromCart", "Product", new { productId = @Model.Id },new { @class = "button1" })
+</span>

@@ -1,0 +1,48 @@
+﻿@using System.Web.UI.WebControls
+@using Client.Extensions
+@model Client.Models.UserLogin
+@{
+    string cookie="";
+    if (Request.Cookies["name"] != null)
+    {
+    cookie = Request.Cookies["name"].Value;
+    }
+}
+
+
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <p>@Html.DayGreeting() @cookie</p>
+    using (Html.BeginForm("LogOut", "User", FormMethod.Post))
+    {
+        <input type="submit" value="Log Out" class="button1" />
+    }
+
+
+}
+else
+{
+    <span style="font-weight: bold">Log In</span>
+    <div >
+        @using (Html.BeginForm("LogIn", "User", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(m => m.LoginUserName)
+                @Html.EditorFor(m => m.LoginUserName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.LoginPassword)
+                @Html.EditorFor(m => m.LoginPassword)
+            </div>
+            if (Session["loginError"] != null)
+            {
+                <div class="validation-summary-errors">@Session["loginError"].ToString()</div>
+            }
+            <input type="submit" value="Log In" class="button1" />
+            <input type="reset" value="Clear" class="button1"/>
+        }
+    </div>
+}
+
+
+

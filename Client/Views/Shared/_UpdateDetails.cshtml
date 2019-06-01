@@ -1,0 +1,46 @@
+﻿@model Client.Models.UserDto
+
+@using (Html.BeginForm("UpdateDetails", "User"))
+{
+<div>
+    @Html.LabelFor(m => m.FirstName)
+    @Html.EditorFor(m => m.FirstName)
+    @Html.ValidationMessageFor(m => m.FirstName, "*")
+</div>
+<div>
+    @Html.LabelFor(m => m.LastName)
+    @Html.EditorFor(m => m.LastName)
+    @Html.ValidationMessageFor(m => m.LastName, "*")
+</div>
+<div>
+    @Html.LabelFor(m => m.Email)
+    @Html.EditorFor(m => m.Email)
+    @Html.ValidationMessageFor(m => m.Email, "*")
+</div>
+<div>
+    @Html.LabelFor(m => m.BirthDate)
+    @Html.TextBoxFor(m => m.BirthDate, "{0:yyyy-MM-dd}", new { type = "date" })
+    @Html.ValidationMessageFor(m => m.BirthDate, "*")
+</div>
+<div>
+    @Html.LabelFor(m => m.UserName)
+    @Html.EditorFor(m => m.UserName, new { htmlAttributes = new { @disabled = "disabled" } })
+    <input type="hidden" name="username" value="@Model.UserName"/>
+</div>
+<div>
+    @Html.LabelFor(m => m.Password)
+    @Html.EditorFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password, "*")
+</div>
+    <div>
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.EditorFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "*")
+    </div>
+
+    <div>@Html.ValidationSummary(false)</div>
+@Html.Hidden("Id", Model.Id)
+<input type="submit" value="Update" name="UpdateDetails" class="button1" />
+
+
+}

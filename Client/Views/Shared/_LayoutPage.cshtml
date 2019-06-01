@@ -1,0 +1,42 @@
+﻿@using Client.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Styles/Validation.css" rel="stylesheet" />
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <span>
+            <img src="/Content/Images/logo.png" height="50" width="50"/> 
+            <span class="logo">T<span class="logo-color">oo</span> H<span class="logo-color">igh for the</span> S<span class="logo-color">upermarket</span></span>
+            </span>
+            <div class="header-sentance">
+                @RenderSection("header")
+            </div> 
+        </div>
+        <div class="bottom">
+            <div class="nav">
+                <div>
+                    @Html.Partial("_LogIn", new Client.Models.UserLogin())
+                </div>
+                <div class="menu">
+                    @Html.Partial("_menu")
+                  
+                </div>
+            </div>
+            <div class="content">
+                <div>@RenderBody()</div>
+            </div>
+        </div>
+           
+    </div>
+</body>
+</html>

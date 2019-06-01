@@ -1,0 +1,104 @@
+﻿body {
+    font-family: Oswald
+}
+
+    .container {
+        display:grid;
+        grid-template-rows: 85px auto;
+            
+    }
+    .container>div{
+        background: #eee
+    }
+    .bottom {
+        display: grid;
+        grid-template-columns: 23% 77%;
+        border: #333 1px solid
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        border: #333 1px solid
+    }
+
+    .nav > div {
+        border: #333 1px solid;
+        margin: 1rem;
+        padding: 1rem;
+        background: #ddd;
+    }
+
+    img{
+        padding-left: 1rem;
+     
+    }
+
+.content{
+    padding: 1rem;
+}
+h1,h2{
+    display: inline;
+
+}
+
+.login-container > input {
+    width: 100%;
+}
+
+.logo{
+    vertical-align: 12px;
+    font-weight: bold;
+    font-size: 28px;
+    padding-left: 1rem;
+}
+
+.header-sentance{
+    padding-left: 2rem;
+}
+
+.image-index > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+}
+
+
+a {
+    color:black;
+}
+ a:hover {
+        color: #7a7a7a
+    }
+
+.button1{
+    display:inline-block;
+    padding:0.2em 1.45em;
+    margin:0.5em;
+    border:0.15em solid #CCCCCC;
+    text-decoration:none;
+    font-weight:400;
+    color:#000000;
+    background-color:#CCCCCC;
+    text-align:center;
+    position:relative;
+}
+
+.button1:hover {
+    border-color:#7a7a7a;
+}
+
+.button1:active{
+    background-color:#999999;
+}
+
+.product-container {
+    border: solid 1px #000000;
+    padding: 1rem;      
+}
+
+.logo-color{
+    color:#7a7a7a;
+}
+

@@ -1,0 +1,68 @@
+﻿
+@if (@ViewContext.RouteData.Values["action"].ToString() == "Index")
+{
+    <div>@Html.ActionLink("Home", "Index", "Home", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+}
+    else
+    {
+    <div>@Html.ActionLink("Home", "Index", "Home")</div>
+}
+
+@if (@ViewContext.RouteData.Values["action"].ToString() == "UserDetails"
+    || @ViewContext.RouteData.Values["action"].ToString() == "UpdateDetails"
+    || @ViewContext.RouteData.Values["action"].ToString() == "Registration")
+{
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        <div>@Html.ActionLink("Personal Details", "UserDetails", "User", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+    }
+    else
+    {
+        <div>@Html.ActionLink("Registration", "UserDetails", "User", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+    }
+}
+else
+{
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        <div>@Html.ActionLink("Personal Details", "UserDetails", "User")</div>
+    }
+    else
+    {
+        <div>@Html.ActionLink("Registration", "UserDetails", "User")</div>
+    }
+}
+
+@if (@ViewContext.RouteData.Values["action"].ToString() == "About")
+{
+    <div>@Html.ActionLink("About", "About", "Home", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+
+}
+else
+{
+    <div>@Html.ActionLink("About", "About", "Home")</div>
+
+}
+
+@if (@ViewContext.RouteData.Values["action"].ToString() == "ViewCart")
+{
+    <div>@Html.ActionLink("Cart", "ViewCart", "Product", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+}
+else
+{
+    <div>@Html.ActionLink("Cart", "ViewCart", "Product")</div>
+}
+
+@if (Context.User.Identity.IsAuthenticated)
+{
+    if (@ViewContext.RouteData.Values["action"].ToString() == "PublishProduct")
+    {
+        <div> @Html.ActionLink("Post new item", "PublishProduct", "Product", new { onclick = "javascript:return false;", style = "font-weight:bold;" })</div>
+    }
+    else
+    {
+        <div> @Html.ActionLink("Post new item", "PublishProduct", "Product")</div>
+    }
+
+}
+

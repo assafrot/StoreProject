@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Client.Models.ProductDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<!--visual studio cant compaile fraction unit in css file.-->
+<style>
+    .products-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+        margin: 1em;
+    }
+</style>
+
+<div>
+    <h2>Ready to explore?</h2>
+    <span>
+    @Html.ActionLink("Order by Date", "Index", new { order = "date" })
+    @Html.ActionLink("Order by Title", "Index", new { order = "title" })
+    </span>
+</div>
+
+
+<div class="products-container">
+    @foreach (var product in Model)
+    {
+        <div>   @Html.Partial("_GetProduct", product)</div>
+    }
+</div>
+
+@section header{
+Welcome!
+}

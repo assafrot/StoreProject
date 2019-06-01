@@ -1,0 +1,32 @@
+﻿@model Client.Models.UserDto
+
+@{
+    ViewBag.Title = "DetailsUpdate";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@if (!Context.User.Identity.IsAuthenticated)
+{
+<h3>Personal Details Registration</h3>
+@Html.Partial("_Registration")
+}
+else
+{
+    <h3>Update Personal Details</h3>
+    @Html.Partial("_UpdateDetails")
+
+
+}
+
+
+@if (Context.User.Identity.IsAuthenticated)
+    {
+    @section Header{
+    Personal details
+    }
+}
+    else
+    {
+@section Header{
+    Registration
+}
+   }

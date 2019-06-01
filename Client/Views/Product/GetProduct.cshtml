@@ -1,0 +1,31 @@
+﻿@using Client.Extensions
+@model Client.Models.ProductDto
+
+
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Full Details about @Model.Title</h2>
+<p>@Model.ShortDescription</p>
+<p>@Model.Date</p>
+<P>@Model.LongDescription</P>
+@Html.Image(Model.Image1)
+@Html.Image(Model.Image2)
+@Html.Image(Model.Image3)
+
+<p>Price: @Model.Price </p>
+
+
+<p>post by @Model.Owner.FirstName. You can contact the seller by email: @Model.Owner.Email</p>
+
+
+<div >
+    @Html.ActionLink("Add to Cart", "AddToCart", "Product", new { productId = @Model.Id }, new { @class = "button1" })
+    <a href=@ViewBag.refferer class="button1">Back</a></div>
+
+
+@section header{
+    Product Details
+}

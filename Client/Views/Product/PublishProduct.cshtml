@@ -1,0 +1,61 @@
+﻿@using System.Web.UI.WebControls
+@model Client.Models.ProductDto
+
+@{
+    ViewBag.Title = "PublishProduct";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Publish Product</h2>
+
+@using (Html.BeginForm("PostProduct", "Product", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(m => m.Title)
+        @Html.EditorFor(m => m.Title)
+    </div>
+    <div>@Html.ValidationMessageFor(m => m.Title)</div>
+    <div>
+        @Html.LabelFor(m => m.ShortDescription)
+        @Html.EditorFor(m => m.ShortDescription)
+    </div>
+    <div>@Html.ValidationMessageFor(m => m.ShortDescription)</div>
+    <div>
+        <div>
+        @Html.LabelFor(m => m.LongDescription)   
+        </div>
+        <div>
+        @Html.TextAreaFor(m => m.LongDescription)
+        </div>
+    </div>
+    <div>@Html.ValidationMessageFor(m => m.LongDescription)</div>
+    <div>
+        @Html.LabelFor(m => m.Price)
+        @Html.EditorFor(m => m.Price)
+    </div>
+    <div>@Html.ValidationMessageFor(m => m.Price)</div>
+    <div>
+        @Html.LabelFor(m => m.Image1)
+        <input name="upload" id="image1" type="file" accept="image/*" />
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Image2)
+        <input name="upload" id="image2" type="file" accept="image/*"/>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Image3)
+        <input name="upload" id="image3" type="file" accept="image/*"/>
+    </div>
+
+    <div>@Html.ValidationMessageFor(m => m.Image3)</div>
+
+    <input type="submit" value="Add Product" name="PostProduct" class="button1" />
+
+
+
+}
+
+
+@section Header{
+    Publish new item
+}
